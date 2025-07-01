@@ -6,12 +6,12 @@ fun main() {
         print("Pilih: ")
         val input = readLine()?.toIntOrNull() ?: 0
         when (input) {
-            1 -> println("Menu: Nasi Goreng, Mie Ayam\n")
-            2 -> println("Beli.\n")
-            3 -> {println("Terima kasih!")
+            1 -> println("Menu: Nasi Goreng, Mie Ayam")
+            2 -> println("Beli.")
+            3 -> {println("Terima kasih!")1
                 break
             }
-            else -> println("Pilihan tidak valid.\n")
+            else -> println("Pilihan tidak valid.")
         }
     }
 }
