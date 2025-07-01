@@ -8,8 +8,7 @@ fun main() {
         when (input) {
             1 -> println("Menu: Nasi Goreng, Mie Ayam\n")
             2 -> println("Beli.\n")
-            3 -> {
-                println("Terima kasih!")
+            3 -> {println("Terima kasih!")
                 break
             }
             else -> println("Pilihan tidak valid.\n")
