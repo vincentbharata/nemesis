@@ -9,7 +9,7 @@ Kamu adalah pengembang untuk sebuah aplikasi bimbingan belajar yang ingin menyim
 1. **Tambah Data Siswa**
 
    - Input nama siswa
-   - Input mapel dan nilainya
+   - Input nilai
    - Simpan dalam struktur data `Map<String, MutableList<Int>>`
 
 2. **Lihat Semua Data Siswa**
