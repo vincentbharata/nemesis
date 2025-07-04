@@ -6,6 +6,7 @@ a. OkHttp
 b. Volley
 c. Retrofit
 d. Alamofire
+Jawaban: c
 
 ---
 
@@ -15,6 +16,7 @@ a. Menyimpan data pengguna
 b. Mengirim form ke server
 c. Mengirim permintaan HTTP GET ke endpoint `users`
 d. Menghapus pengguna dari server
+Jawaban: c
 
 ---
 
@@ -24,6 +26,7 @@ a. Untuk mempermudah syntax Kotlin
 b. Untuk menjaga agar UI tidak macet saat HTTP call
 c. Agar data disimpan ke SharedPreferences
 d. Agar aplikasi bisa offline
+Jawaban: b
 
 ---
 
@@ -33,6 +36,7 @@ a. JsonParser
 b. GsonConverterFactory
 c. JSONTokener
 d. JSONBuilder
+Jawaban: b
 
 ---
 
@@ -42,6 +46,7 @@ a. Mengatur authentication
 b. Menentukan response type
 c. Menentukan endpoint utama API
 d. Menentukan ukuran file
+Jawaban: c
 
 ---
 
@@ -51,6 +56,7 @@ a. Saat upload file
 b. Saat mengirim body JSON
 c. Saat menambahkan parameter URL
 d. Saat menyimpan token
+Jawaban: c
 
 ---
 
@@ -60,6 +66,7 @@ a. API berhasil dipanggil
 b. Status HTTP adalah 200
 c. Response tidak sesuai format
 d. Retrofit tidak digunakan
+Jawaban: c
 
 ---
 
@@ -69,6 +76,7 @@ a. @GET
 b. @POST
 c. @PUT
 d. @FETCH
+Jawaban: b
 
 ---
 
@@ -78,6 +86,7 @@ a. Program tetap jalan
 b. Data akan disimpan sebagai string
 c. Retrofit akan error saat parsing
 d. File JSON akan corrupt
+Jawaban: c
 
 ---
 
@@ -87,47 +96,58 @@ a. `.execute()`
 b. `.enqueue()`
 c. `.get()`
 d. `.await()`
+Jawaban: b
 
 ---
 ```
 
 #### 11. Jelaskan perbedaan antara Retrofit dan OkHttp dalam arsitektur Android.
+Jawaban: Retrofit adalah library yang digunakan untuk membuat API request, sedangkan OkHttp adalah library yang digunakan untuk membuat request HTTP. 
 
 ---
 
 #### 12. Sebutkan dua cara menangani response API di Retrofit!
+Jawaban: Menggunakan `Response` object, Menggunakan `Call` object.
 
 ---
 
 #### 13. Bagaimana cara mengecek apakah response dari server berhasil atau tidak?
+Jawaban: Dengan menggunakan `isSuccessful()` method pada `Response` object.
 
 ---
 
 #### 14. Apa fungsi `@Header("Authorization")` dalam Retrofit?
+Jawaban: Digunakan untuk menambahkan header pada request API.
 
 ---
 
 #### 15. Apa itu suspend function dan mengapa sering digunakan bersama Retrofit?
+Jawaban: Suspend function adalah fungsi yang dapat dihentikan dan dilanjutkan, sering digunakan bersama Retrofit karena dapat membuat kode lebih mudah dibaca dan diatur 
 
 ---
 
 #### 16. Sebutkan satu contoh kasus nyata di mana HTTP client dibutuhkan dalam aplikasi Android.
+Jawaban: Menggunakan API dari server lain untuk mendapatkan data
 
 ---
 
 #### 17. Jika API kamu lambat dan pengguna harus menunggu lama, bagaimana solusi teknisnya?
+Jawaban: Menggunakan caching, mengoptimalkan kode, menggunakan teknologi lain seperti GraphQL atau gRPC
 
 ---
 
 #### 18. Bagaimana cara menangani `TimeoutException` saat HTTP call?
+Jawaban: Dengan menggunakan `Timeout` pada `OkHttpClient` atau `Retrofit
 
 ---
 
 #### 19. Mengapa penting untuk menangani error code seperti 401 atau 500?
+Jawaban: Untuk memastikan aplikasi tetap berjalan dengan baik
 
 ---
 
 #### 20. Apa itu DTO dalam konteks komunikasi dengan API?
+Jawaban: DTO (Data Transfer Object) adalah objek yang digunakan untuk mentransfer data antara aplikasi dan API
 
 ---
 
@@ -141,7 +161,14 @@ interface ApiService {
     fun getUser(): Call<User>
 }
 ```
+Jawaban:  Tambahkan parameter pada `@GET` 
 
+```kotlin
+interface ApiService {
+    @GET("users")
+    fun getUser(): Call<User>
+}
+```
 ---
 
 #### 22. Ada kesalahan dalam Retrofit builder berikut. Apa yang salah?
@@ -150,6 +177,13 @@ interface ApiService {
 val retrofit = Retrofit.Builder()
     .baseUrl("https://api.example.com")
     .addConverterFactory(GsonConverterFactory)
+    .build()
+```
+Jawaban: tambahkan create dan url gunakan / 
+```kotlin
+val retrofit = Retrofit.Builder()
+    .baseUrl("https://api.example.com/") 
+    .addConverterFactory(GsonConverterFactory.create())
     .build()
 ```
 
@@ -175,6 +209,13 @@ data class User(
     val fullName: String
 )
 ```
+Jawaban: field fullname harusnya name
+```kotlin
+data class User(
+    val id: Int,
+    val name: String
+)
+```
 
 ---
 
@@ -184,7 +225,11 @@ data class User(
 @POST("user/add")
 fun createUser(@Body user: ???): Call<User>
 ```
-
+Jawaban: Parameter `@Body` harus berupa data class yang akan dikirim, misal `User`
+```kotlin
+@POST("user/add")
+fun createUser(@Body user: User): Call<User>
+```
 ---
 
 #### 25. Perbaiki fungsi berikut agar memanggil API secara asynchronous:
@@ -193,7 +238,16 @@ fun createUser(@Body user: ???): Call<User>
 val call = apiService.getUser()
 val result = call.execute()
 ```
-
+Jawaban: `.enqueue()` digunakan untuk asynchronous, sedangkan `.execute()` synchronous dan bisa menyebabkan UI freeze.
+```kotlin
+val call = apiService.getUser()
+call.enqueue(object : Callback<User> {
+    override fun onResponse(call: Call<User>, response: Response<User>) {
+    }
+    override fun onFailure(call: Call<User>, t: Throwable) {
+    }
+})
+```
 ---
 
 #### 26. Perbaiki parameter Retrofit berikut agar bisa mengirim `id` lewat query:
@@ -202,7 +256,11 @@ val result = call.execute()
 @GET("user")
 fun getUser(@Param("id") id: Int): Call<User>
 ```
-
+Jawaban: Untuk query parameter, gunakan `@Query`, bukan `@Param`.
+```kotlin
+@GET("user")
+fun getUser(@Query("id") id: Int): Call<User>
+```
 ---
 
 #### 27. Perbaiki kode berikut agar response-nya bisa langsung digunakan di ViewModel coroutine:
@@ -210,6 +268,11 @@ fun getUser(@Param("id") id: Int): Call<User>
 ```kotlin
 @GET("user")
 fun getUser(): Call<User>
+```
+Jawaban: gunakan `suspend` dan return langsung objek, bukan `Call<User>`.
+```kotlin
+@GET("user")
+suspend fun getUser(): User
 ```
 
 ---
@@ -221,6 +284,16 @@ val user = api.getUser()
 user.enqueue(object: ??? {
     override fun onResponse(...) {
         // handle
+    }
+})
+```
+Jawaban: gunakan `Callback<User>`
+```kotlin
+val user = api.getUser()
+user.enqueue(object: Callback<User> {
+    override fun onResponse(call: Call<User>, response: Response<User>) {
+    }
+    override fun onFailure(call: Call<User>, t: Throwable) {
     }
 })
 ```
@@ -238,6 +311,20 @@ call.enqueue(object: Callback<User> {
     }
 })
 ```
+Jawaban: Harus menangani baik error jaringan (`onFailure`) maupun error response dari server (`onResponse` tapi tidak sukses).
+```kotlin
+val call = api.getUser()
+call.enqueue(object: Callback<User> {
+    override fun onFailure(call: Call<User>, t: Throwable) {
+        // handle error, misal tampilkan pesan error
+    }
+    override fun onResponse(call: Call<User>, response: Response<User>) {
+        if (response.isSuccessful) {
+        } else {
+        }
+    }
+})
+```
 
 ---
 
@@ -246,6 +333,13 @@ call.enqueue(object: Callback<User> {
 ```kotlin
 val result = api.getUser()
 val data = result.body()
+```
+Jawaban: Dengan suspend function, gunakan `try-catch` untuk menangani error network secara langsung di coroutine.
+```kotlin
+try {
+    val result = api.getUser() 
+} catch (e: Exception) {
+}
 ```
 
 ---
