@@ -6,7 +6,10 @@ a. OkHttp
 b. Volley
 c. Retrofit
 d. Alamofire
+<<<<<<< HEAD
 Jawaban: c
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -16,7 +19,10 @@ a. Menyimpan data pengguna
 b. Mengirim form ke server
 c. Mengirim permintaan HTTP GET ke endpoint `users`
 d. Menghapus pengguna dari server
+<<<<<<< HEAD
 Jawaban: c
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -26,7 +32,10 @@ a. Untuk mempermudah syntax Kotlin
 b. Untuk menjaga agar UI tidak macet saat HTTP call
 c. Agar data disimpan ke SharedPreferences
 d. Agar aplikasi bisa offline
+<<<<<<< HEAD
 Jawaban: b
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -36,7 +45,10 @@ a. JsonParser
 b. GsonConverterFactory
 c. JSONTokener
 d. JSONBuilder
+<<<<<<< HEAD
 Jawaban: b
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -46,7 +58,10 @@ a. Mengatur authentication
 b. Menentukan response type
 c. Menentukan endpoint utama API
 d. Menentukan ukuran file
+<<<<<<< HEAD
 Jawaban: c
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -56,7 +71,10 @@ a. Saat upload file
 b. Saat mengirim body JSON
 c. Saat menambahkan parameter URL
 d. Saat menyimpan token
+<<<<<<< HEAD
 Jawaban: c
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -66,7 +84,10 @@ a. API berhasil dipanggil
 b. Status HTTP adalah 200
 c. Response tidak sesuai format
 d. Retrofit tidak digunakan
+<<<<<<< HEAD
 Jawaban: c
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -76,7 +97,10 @@ a. @GET
 b. @POST
 c. @PUT
 d. @FETCH
+<<<<<<< HEAD
 Jawaban: b
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -86,7 +110,10 @@ a. Program tetap jalan
 b. Data akan disimpan sebagai string
 c. Retrofit akan error saat parsing
 d. File JSON akan corrupt
+<<<<<<< HEAD
 Jawaban: c
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -96,58 +123,91 @@ a. `.execute()`
 b. `.enqueue()`
 c. `.get()`
 d. `.await()`
+<<<<<<< HEAD
 Jawaban: b
+=======
+>>>>>>> upstream/master
 
 ---
 ```
 
 #### 11. Jelaskan perbedaan antara Retrofit dan OkHttp dalam arsitektur Android.
+<<<<<<< HEAD
 Jawaban: Retrofit adalah library yang digunakan untuk membuat API request, sedangkan OkHttp adalah library yang digunakan untuk membuat request HTTP. 
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 12. Sebutkan dua cara menangani response API di Retrofit!
+<<<<<<< HEAD
 Jawaban: Menggunakan `Response` object, Menggunakan `Call` object.
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 13. Bagaimana cara mengecek apakah response dari server berhasil atau tidak?
+<<<<<<< HEAD
 Jawaban: Dengan menggunakan `isSuccessful()` method pada `Response` object.
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 14. Apa fungsi `@Header("Authorization")` dalam Retrofit?
+<<<<<<< HEAD
 Jawaban: Digunakan untuk menambahkan header pada request API.
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 15. Apa itu suspend function dan mengapa sering digunakan bersama Retrofit?
+<<<<<<< HEAD
 Jawaban: Suspend function adalah fungsi yang dapat dihentikan dan dilanjutkan, sering digunakan bersama Retrofit karena dapat membuat kode lebih mudah dibaca dan diatur 
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 16. Sebutkan satu contoh kasus nyata di mana HTTP client dibutuhkan dalam aplikasi Android.
+<<<<<<< HEAD
 Jawaban: Menggunakan API dari server lain untuk mendapatkan data
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 17. Jika API kamu lambat dan pengguna harus menunggu lama, bagaimana solusi teknisnya?
+<<<<<<< HEAD
 Jawaban: Menggunakan caching, mengoptimalkan kode, menggunakan teknologi lain seperti GraphQL atau gRPC
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 18. Bagaimana cara menangani `TimeoutException` saat HTTP call?
+<<<<<<< HEAD
 Jawaban: Dengan menggunakan `Timeout` pada `OkHttpClient` atau `Retrofit
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 19. Mengapa penting untuk menangani error code seperti 401 atau 500?
+<<<<<<< HEAD
 Jawaban: Untuk memastikan aplikasi tetap berjalan dengan baik
+=======
+>>>>>>> upstream/master
 
 ---
 
 #### 20. Apa itu DTO dalam konteks komunikasi dengan API?
+<<<<<<< HEAD
 Jawaban: DTO (Data Transfer Object) adalah objek yang digunakan untuk mentransfer data antara aplikasi dan API
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -161,6 +221,7 @@ interface ApiService {
     fun getUser(): Call<User>
 }
 ```
+<<<<<<< HEAD
 Jawaban:  Tambahkan parameter pada `@GET` 
 
 ```kotlin
@@ -169,6 +230,9 @@ interface ApiService {
     fun getUser(): Call<User>
 }
 ```
+=======
+
+>>>>>>> upstream/master
 ---
 
 #### 22. Ada kesalahan dalam Retrofit builder berikut. Apa yang salah?
@@ -179,6 +243,7 @@ val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory)
     .build()
 ```
+<<<<<<< HEAD
 Jawaban: tambahkan create dan url gunakan / 
 ```kotlin
 val retrofit = Retrofit.Builder()
@@ -186,6 +251,8 @@ val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 ```
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -209,6 +276,7 @@ data class User(
     val fullName: String
 )
 ```
+<<<<<<< HEAD
 Jawaban: field fullname harusnya name
 ```kotlin
 data class User(
@@ -216,6 +284,8 @@ data class User(
     val name: String
 )
 ```
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -225,11 +295,15 @@ data class User(
 @POST("user/add")
 fun createUser(@Body user: ???): Call<User>
 ```
+<<<<<<< HEAD
 Jawaban: Parameter `@Body` harus berupa data class yang akan dikirim, misal `User`
 ```kotlin
 @POST("user/add")
 fun createUser(@Body user: User): Call<User>
 ```
+=======
+
+>>>>>>> upstream/master
 ---
 
 #### 25. Perbaiki fungsi berikut agar memanggil API secara asynchronous:
@@ -238,6 +312,7 @@ fun createUser(@Body user: User): Call<User>
 val call = apiService.getUser()
 val result = call.execute()
 ```
+<<<<<<< HEAD
 Jawaban: `.enqueue()` digunakan untuk asynchronous, sedangkan `.execute()` synchronous dan bisa menyebabkan UI freeze.
 ```kotlin
 val call = apiService.getUser()
@@ -248,6 +323,9 @@ call.enqueue(object : Callback<User> {
     }
 })
 ```
+=======
+
+>>>>>>> upstream/master
 ---
 
 #### 26. Perbaiki parameter Retrofit berikut agar bisa mengirim `id` lewat query:
@@ -256,11 +334,15 @@ call.enqueue(object : Callback<User> {
 @GET("user")
 fun getUser(@Param("id") id: Int): Call<User>
 ```
+<<<<<<< HEAD
 Jawaban: Untuk query parameter, gunakan `@Query`, bukan `@Param`.
 ```kotlin
 @GET("user")
 fun getUser(@Query("id") id: Int): Call<User>
 ```
+=======
+
+>>>>>>> upstream/master
 ---
 
 #### 27. Perbaiki kode berikut agar response-nya bisa langsung digunakan di ViewModel coroutine:
@@ -269,11 +351,14 @@ fun getUser(@Query("id") id: Int): Call<User>
 @GET("user")
 fun getUser(): Call<User>
 ```
+<<<<<<< HEAD
 Jawaban: gunakan `suspend` dan return langsung objek, bukan `Call<User>`.
 ```kotlin
 @GET("user")
 suspend fun getUser(): User
 ```
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -287,6 +372,7 @@ user.enqueue(object: ??? {
     }
 })
 ```
+<<<<<<< HEAD
 Jawaban: gunakan `Callback<User>`
 ```kotlin
 val user = api.getUser()
@@ -297,6 +383,8 @@ user.enqueue(object: Callback<User> {
     }
 })
 ```
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -311,6 +399,7 @@ call.enqueue(object: Callback<User> {
     }
 })
 ```
+<<<<<<< HEAD
 Jawaban: Harus menangani baik error jaringan (`onFailure`) maupun error response dari server (`onResponse` tapi tidak sukses).
 ```kotlin
 val call = api.getUser()
@@ -325,6 +414,8 @@ call.enqueue(object: Callback<User> {
     }
 })
 ```
+=======
+>>>>>>> upstream/master
 
 ---
 
@@ -334,6 +425,7 @@ call.enqueue(object: Callback<User> {
 val result = api.getUser()
 val data = result.body()
 ```
+<<<<<<< HEAD
 Jawaban: Dengan suspend function, gunakan `try-catch` untuk menangani error network secara langsung di coroutine.
 ```kotlin
 try {
@@ -341,5 +433,7 @@ try {
 } catch (e: Exception) {
 }
 ```
+=======
+>>>>>>> upstream/master
 
 ---
